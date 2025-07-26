@@ -1,0 +1,55 @@
+.container-posts{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 30px 10%;
+    gap: 15px;
+}
+
+.card-post{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #ececec;
+    padding: 10px;
+    color: #592614;
+    cursor: pointer;
+    &:hover{
+        background-color: #dbdbdb;
+    }
+}
+
+.card-post-content{
+    display: flex;
+    justify-content: space-between;
+}
+
+.text{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+}
+
+.text img{
+    width: 40%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    border-radius: 6px;
+    &:hover{
+        transform: scale(1.02);
+    }
+}
+
+.image-post{
+    display: flex;
+    width: 100%;
+}
+
+.image-post img{
+    display: block;
+    width: 100%;
+    border-radius: 20px;
+}

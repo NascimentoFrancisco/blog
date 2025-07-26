@@ -1,0 +1,100 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #D9CDBF;
+  color: #384001;
+  line-height: 1.2;
+}
+
+main {
+  flex: 1;
+}
+
+/* Classes padrões de toda a aplicação */
+.btn {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  width: 100%;
+  background-color: #374001;
+  border-radius: 25px;
+  color: #ffffff;
+  font-family: AbhayaLibre, sans-serif;
+  cursor: pointer;
+  font-weight: 700;
+  border: none;
+
+  &:hover {
+    background-color: #2b3102;
+  }
+}
+
+/* Botão padrão para finalidades secundárias */
+.btn_secondary {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  width: 100%;
+  background-color: #8c4c28;
+  border-radius: 25px;
+  color: #ffffff;
+  font-family: FoundersGrotesk, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+
+  &:hover {
+    background-color: #773b18;
+  }
+}
+
+.btn_secondary_outline {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 4px;
+  width: 100%;
+  background-color: transparent;
+  border-radius: 25px;
+  color: #8c4c28;
+  font-family: FoundersGrotesk, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid #8c4c28;
+
+  &:hover {
+    background-color: #773b181a;
+  }
+}
+
+
+.btn_danger{
+  background-color: #aa1308;
+  &:hover {
+    background-color: #720b03;
+  }
+}

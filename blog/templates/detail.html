@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/blog/styles.css' %}">
+{% endblock %}
+
+<main>
+    {% block content %}
+        <div class="container-posts">
+            <div class="card-post">
+                <h1>{{ post.title }}</h1>
+                {% if post.image %}
+                    <div class="image-post">
+                        <img src="{{ post.image.url }}" alt="image post">
+                    </div>
+                {% endif %}
+                <p>{{ post.content|safe }}</p>
+            </div>
+        </div>
+    {% endblock %}
+</main>

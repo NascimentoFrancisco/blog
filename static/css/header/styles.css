@@ -1,0 +1,20 @@
+header {
+    background-color: #592614;
+    color: #D9CDBF;
+    padding: 5px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 4px solid #8C4C27;
+}
+
+.header-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #D9CDBF;
+    color: #384001;
+    padding: 20px;
+    height: 100px;
+    border-radius: 50px;
+}
