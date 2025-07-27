@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    env_file:
+      - ./.env
+    healthcheck: # Verifica se o banco de dados está pronto
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+  
+  web:
+    build: . # Constrói a imagem Docker a partir do Dockerfile neste diretório
+    command: "gunicorn core.wsgi:application --bind 0.0.0.0:8000" # Comando para iniciar o Gunicorn
+    volumes:
+      - .:/app
+      - static_volume:/app/staticfiles
+      - media_volume:/app/media
+    expose:
+      - 8000
+    env_file:
+      - ./.env
+    depends_on:
+      db:
+        condition: service_healthy # Garante que o banco de dados esteja saudável antes de iniciar o Django
+  
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80" # Mapeia a porta 80 do host para a porta 80 do Nginx no contêiner
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - static_volume:/app/staticfiles
+      - media_volume:/app/media
+    depends_on:
+      - web
+
+volumes:
+  postgres_data:
+  static_volume:
+  media_volume:

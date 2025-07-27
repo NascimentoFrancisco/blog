@@ -6,7 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = config("SECRET_KEY")
 
-DEBUG = config("DEBUG") 
+DEBUG = config("DEBUG", default=False, cast=bool) 
 
 ALLOWED_HOSTS = ["*"]
 
@@ -53,7 +53,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
-""" DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': config('DB_NAME'),
@@ -62,14 +62,14 @@ WSGI_APPLICATION = 'core.wsgi.application'
         'HOST': config('DB_HOST'),
         'PORT': config('DB_PORT', default='5432'),
     }
-} """
+}
 
-DATABASES = {
+""" DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-}
+} """
 
 
 
