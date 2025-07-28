@@ -35,7 +35,7 @@ services:
   nginx:
     image: nginx:latest
     ports:
-      - "80:80" # Mapeia a porta 80 do host para a porta 80 do Nginx no contêiner
+      - 80:80 # Mapeia a porta 80 do host para a porta 80 do Nginx no contêiner
     volumes:
       - ./nginx:/etc/nginx/conf.d
       - static_volume:/app/staticfiles
