@@ -1,5 +1,5 @@
 # Usando uma imagem base Python
-FROM python:3.12-slim-bullseye
+FROM python:3.12-slim
 
 # Define o diretório de trabalho dentro do contêiner
 WORKDIR /app
@@ -10,7 +10,10 @@ ENV PYTHONUNBUFFERED 1
 
 
 # Instala as dependências do sistema necessárias para psycopg2
-RUN apt-get update && apt-get install -y libpq-dev gcc
+# RUN apt-get update && apt-get install -y libpq-dev gcc
+
+# Instala as dependências do sistema necessárias para psycopg2 e netcat
+RUN apt-get update && apt-get install -y libpq-dev gcc netcat
 
 # Copia o arquivo requirements.txt e instala as dependências Python
 COPY requirements.txt /app/
