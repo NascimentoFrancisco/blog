@@ -8,3 +8,4 @@ db.sqlite3
 .env
 media
 media/
+docker-compose.exempla.txt

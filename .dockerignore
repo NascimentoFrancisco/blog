@@ -10,3 +10,4 @@ docker-compose.yml
 nginx/
 media/
 staticfiles/
+docker-compose.exempla.txt
